@@ -1,0 +1,53 @@
+URI Type for javascript
+
+  var u = new URI('http://user:pass@github.com/webr3/URI?query=string#this');
+ 
+URI extends the native String implementation, so 'u' is a string, and you can call all the normal
+String methods like u.indexOf(), u.match(), u.substr() and so forth.
+
+In addition, URI exposes the following URI specific methods for reading parts of a URI (each of
+which are strings themselves): 
+
+  u.scheme();                            -> 'http:'
+  u.heirpart();                          -> '//user:pass@github.com/webr3/URI'
+  u.heirpart().authority();              -> 'user:pass@github.com'
+  u.heirpart().authority().userinfo();   -> 'user:pass'
+  u.heirpart().authority().host();       -> 'github.com'
+  u.heirpart().path();                   -> '/webr3/URI'
+  u.querystring();                       -> '?query=string'
+  u.fragment();                          -> '#this'
+
+Further, methods are exposed to handle complicated URIs:
+
+  u = new URI('http://github.com/a/b/c/d/../.././egg#s/../x');
+  u.isAbsolute();                        -> boolean
+  u.defrag();                            -> 'http://github.com/a/b/c/d/../.././egg'
+  u.toAbsolute();                        -> 'http://github.com/a/b/egg'
+  
+and to resolve relative URIs + URI References:
+ 
+  u = new URI('http://github.com/a/b/c/d'); 
+  u.resolveReference('../.././n?x=y');   -> 'http://github.com/a/n?x=y'
+
+
+Details:
+ - Supports all kinds of URI (URL, URN, any scheme).
+ - Relative URI Resolution
+ - All classes extend the native String implementation.
+ - Pure ECMA-262 implementation of URI spec (RFC-3986)
+ - Works Client or Server side, (V8 / node.js compatible).
+ 
+ 
+A few examples of some of the URIs supported:
+ - ftp://ftp.is.co.za/rfc/rfc1808.txt
+ - http://www.ietf.org:8080/rfc/rfc2396.txt
+ - ldap://[2001:db8::7]:140/c=GB?objectClass?one
+ - mailto:John.Doe@example.com
+ - news:comp.infosystems.www.servers.unix
+ - tel:+1-816-555-1212
+ - telnet://192.0.2.16/
+ - telnet://192.0.2.16:/
+ - telnet://192.0.2.16:80/
+ - urn:oasis:names:specification:docbook:dtd:xml:4.1.2
+ - svn+ssh://data.fm/opt/repos/ssl/trunk
+ - file:///dev/null
