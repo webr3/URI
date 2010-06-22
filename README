@@ -39,7 +39,24 @@ and to resolve relative URIs + URI References:
   u.resolveReference('../.././n?x=y');   -> 'http://github.com/a/n?x=y'
 
 
+node.js usage:
+
+  require('./uris');                              // require the file, and no, you don't need 'var uri ='
+  var u = new URI('http://github.com/webr3/URI'); // nothing's different
+  
+
+running the tests:
+
+  URI.Test(); // be sure to include uristest first
+  
+  
+Notes:
+ - I *may* add case normalisation for segments which support it..
+ - the file is called uris.js instead of uri.js because for some reason the line require('uri') makes
+   v8/node throw a wobbly..
+ - validation is out of scope, couldn't possibly implement validation for every scheme..
  
+
 A few examples of some of the URIs supported:
  - ftp://ftp.is.co.za/rfc/rfc1808.txt
  - http://www.ietf.org:8080/rfc/rfc2396.txt
