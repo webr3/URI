@@ -1,5 +1,14 @@
 URI Type for javascript
+====================================================
+ - Supports all kinds of URI (URL, URN, any scheme).
+ - Relative URI Resolution
+ - All classes extend the native String implementation.
+ - Pure ECMA-262 implementation of URI spec (RFC-3986)
+ - Works Client or Server side, (V8 / node.js compatible).
+ 
 
+Usage:
+ 
   var u = new URI('http://user:pass@github.com/webr3/URI?query=string#this');
  
 URI extends the native String implementation, so 'u' is a string, and you can call all the normal
@@ -30,13 +39,6 @@ and to resolve relative URIs + URI References:
   u.resolveReference('../.././n?x=y');   -> 'http://github.com/a/n?x=y'
 
 
-Details:
- - Supports all kinds of URI (URL, URN, any scheme).
- - Relative URI Resolution
- - All classes extend the native String implementation.
- - Pure ECMA-262 implementation of URI spec (RFC-3986)
- - Works Client or Server side, (V8 / node.js compatible).
- 
  
 A few examples of some of the URIs supported:
  - ftp://ftp.is.co.za/rfc/rfc1808.txt
