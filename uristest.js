@@ -16,7 +16,7 @@
 
 // node require URI if avail
 if( typeof require != 'undefined' ) {
-	try { require('uris'); } catch( e ) {}
+	try { var URI = require('./uris'); } catch( e ) {}
 }
 
 /**
@@ -25,7 +25,7 @@ if( typeof require != 'undefined' ) {
  * 
  * @return void
  */
-URI.Test = function() {
+(function() {
 	// try to use node.js internal assert lib
 	if( typeof require != 'undefined' ) {
 		try {
@@ -123,4 +123,4 @@ URI.Test = function() {
 	assert.equal( test.resolveReference('g?y/../x') , 'http://a/b/c/g?y/../x', message );
 	assert.equal( test.resolveReference('g#s/./x') , 'http://a/b/c/g#s/./x', message );
 	assert.equal( test.resolveReference('g#s/../x') , 'http://a/b/c/g#s/../x', message );
-};
+})();
