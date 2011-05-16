@@ -362,4 +362,5 @@
   valueOf: function() { return this.value; }
 };
 
-module.exports = URI;
+if (typeof(module) != "undefined")
+  module.exports = URI;
