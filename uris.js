@@ -211,9 +211,9 @@
   					T.path = this.removeDotSegments( q );
   				} else {
   					if( this.heirpart().path() ) {
-  						q = this.heirpart().path().lastIndexOf('/');
+  						q = this.heirpart().path().lastIndexOf('/') + 1;
   						if( q ) {
-  							T.path = this.heirpart().path().substring(0,++q);
+  							T.path = this.heirpart().path().substring(0,q);
   						}
   						T.path += reference.heirpart().path();
   					} else {
