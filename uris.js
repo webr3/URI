@@ -362,4 +362,4 @@
   valueOf: function() { return this.value; }
 };
 
-module.exports = URI;
+try { module.exports = URI; } catch(ex) {}
