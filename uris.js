@@ -142,8 +142,8 @@
   				output = '';
   			}
   		} else if( input.substr(0,2) == '..' || input.substr(0,1) == '.' ) {
-  			input = input.slice(input.indexOf('.'));
-  			q = input.indexOf('.');
+  			input = input.slice(input.indexOf('.') + 1);
+  			q = input.indexOf('.') + 1;
   			if(q) {
   				input = input.slice(q);
   			}
