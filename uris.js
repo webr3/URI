@@ -141,9 +141,9 @@
   			} else {
   				output = '';
   			}
-  		} else if( input.substr(0,2) == '..' || input.substr(0,1) == '.' )
-  			input = input.slice(input.indexOf('.') + 1);
-  			q = input.indexOf('.') + 1;
+  		} else if( input.substr(0,2) == '..' || input.substr(0,1) == '.' ) {
+  			input = input.slice(input.indexOf('.'));
+  			q = input.indexOf('.');
   			if(q) {
   				input = input.slice(q);
   			}
