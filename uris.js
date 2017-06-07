@@ -7,7 +7,7 @@
  * - Full test suite can be launched by running URI.Test();
  * 
  * @author Nathan <http://webr3.org/nathan#me>
- * @version 2010-06-22T16:55:00Z
+ * @version 2017-06-07T02:21:00Z
  * @license http://creativecommons.org/publicdomain/zero/1.0/
  * 
  * source: <http://github.com/webr3/URI>
