@@ -142,8 +142,8 @@
   				output = '';
   			}
   		} else if( input.substr(0,2) == '..' || input.substr(0,1) == '.' ) {
-  			input = input.slice(input.indexOf('.'));
-  			q = input.indexOf('.');
+  			input = input.slice(input.indexOf('.') + 1);
+  			q = input.indexOf('.') + 1;
   			if(q) {
   				input = input.slice(q);
   			}
@@ -211,9 +211,9 @@
   					T.path = this.removeDotSegments( q );
   				} else {
   					if( this.heirpart().path() ) {
-  						q = this.heirpart().path().lastIndexOf('/');
+  						q = this.heirpart().path().lastIndexOf('/') + 1;
   						if( q ) {
-  							T.path = this.heirpart().path().substring(0,++q);
+  							T.path = this.heirpart().path().substring(0,q);
   						}
   						T.path += reference.heirpart().path();
   					} else {
@@ -362,4 +362,4 @@
   valueOf: function() { return this.value; }
 };
 
-module.exports = URI;
+try { module.exports = URI; } catch(ex) {}
