@@ -122,7 +122,7 @@
   removeDotSegments: function( input ) {
   	var output = '';
   	var q = null;
-  	while( input.length > 0 ) {
+  	while( input.toString().length > 0 ) {
   		if( input.substr(0,3) == '../' || input.substr(0,2) == './' ) {
   			input = input.slice(input.indexOf('/'));
   		} else if( input == '/.' ) {
@@ -272,7 +272,7 @@
   path: function() {
   	var q = this.authority();
   	if( !q ) return new URI.Path(this);
-  	return new URI.Path( this.slice(q.length + 2) );
+  	return new URI.Path( this.slice(q.toString().length + 2) );
   }
 };
 
