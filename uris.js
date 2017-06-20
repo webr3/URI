@@ -227,7 +227,7 @@
   			q = this.heirpart().authority();
   			T.authority = q ? '//' + q : '';
   		}
-  		T.scheme = this.scheme();
+  		T.scheme = this.scheme() || '';
   	}
   	q = reference.fragment();
   	T.fragment = q ? q : '';
